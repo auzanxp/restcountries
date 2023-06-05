@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Flag from '../components/Flag';
 import { getFormattedCountryData } from '../services/CountryApi';
 import { formatLatlong } from '../utils/CountryFormat';
+import NProgress from 'nprogress';
 
 const DetailCountry = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const DetailCountry = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        NProgress.start();
         const response = await getFormattedCountryData(keyword);
         setCountry(response);
       } catch (error) {
@@ -25,6 +27,7 @@ const DetailCountry = () => {
       }
     };
     fetchData();
+    NProgress.done();
   }, [keyword]);
 
   return (
@@ -102,7 +105,8 @@ const DetailCountry = () => {
                   <div className='text-[#8362F2] text-[48px] font-[700]'>
                     <div className='flex gap-3'>
                       <span className='font-[500]'>
-                        {formatLatlong(country.lat)}, {formatLatlong(country.lang)}
+                        {formatLatlong(country.lat)},{' '}
+                        {formatLatlong(country.lang)}
                       </span>
                     </div>
                   </div>
@@ -152,7 +156,7 @@ const DetailCountry = () => {
                 <div
                   className={
                     isHoverCallingCode
-                      ? 'max-w-[300px] bg-[#525252] p-2 '
+                      ? 'max-w-[300px] bg-[#525252] p-2 mt-2 rounded-lg '
                       : 'hidden'
                   }
                   onMouseLeave={() => setIsHoverCallingCode(false)}
@@ -188,7 +192,7 @@ const DetailCountry = () => {
                 <div
                   className={
                     isHoverCurrencies
-                      ? 'max-w-[300px] bg-[#525252] p-2 '
+                      ? 'max-w-[300px] bg-[#525252] p-2 mt-2 rounded-lg '
                       : 'hidden'
                   }
                   onMouseLeave={() => setIsHoverCurrencies(false)}
