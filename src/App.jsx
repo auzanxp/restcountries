@@ -1,12 +1,14 @@
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import DetailCountry from './pages/DetailCountry';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='results' element={<DetailCountry />} />
+      </Routes>
     </>
   );
 }
