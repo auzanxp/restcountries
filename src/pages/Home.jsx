@@ -5,17 +5,16 @@ import ErrorMessage from '../components/ErorrMessage';
 import SuggestedCountries from '../components/SuggestedCountries';
 
 const Home = () => {
-
   const [collection, setCollection] = useState([]);
-  const [searchKey, setSearchKey] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [isNotFound, setIsNotFound] = useState(false);
   const [typingTimeout, setTypingTimeout] = useState(null);
 
   useEffect(() => {
     const fetchApi = async () => {
       try {
-        if (searchKey) {
-          const api = `https://restcountries.com/v3.1/name/${searchKey}`;
+        if (searchQuery) {
+          const api = `https://restcountries.com/v3.1/name/${searchQuery}`;
           const response = await fetch(api);
           const results = await response.json();
 
@@ -35,14 +34,14 @@ const Home = () => {
     };
 
     clearTimeout(typingTimeout);
-    if (searchKey !== '') {
+    if (searchQuery !== '') {
       const timeout = setTimeout(fetchApi, 800);
       setTypingTimeout(timeout);
     } else {
       setIsNotFound(false);
       setCollection([]);
     }
-  }, [searchKey]);
+  }, [searchQuery]);
 
   return (
     <div className='flex flex-col justify-center items-center w-full h-screen'>
@@ -51,7 +50,7 @@ const Home = () => {
       <div className='flex items-center group rounded-lg justify-center w-[700px] h-[60px] relative border-[0.5px] border-[#C8C8C8]'>
         <Input
           placeholder='Type any country name'
-          onChange={(e) => setSearchKey(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
         <svg
           width='23'
@@ -65,7 +64,7 @@ const Home = () => {
         </svg>
       </div>
 
-      {isNotFound && searchKey !== '' ? (
+      {isNotFound && searchQuery !== '' ? (
         <ErrorMessage message='Data not found!' />
       ) : (
         <SuggestedCountries collection={collection} />
