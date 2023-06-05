@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, createSearchParams } from 'react-router-dom';
 
 const CountryLink = ({ data }) => {

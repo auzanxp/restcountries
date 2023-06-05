@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import globeImage from './../assets/globe.svg';
 import Button from '../components/Button';
 import Flag from '../components/Flag';
-import { getFormattedCountryData } from '../services/Api';
+import { getFormattedCountryData } from '../services/CountryApi';
+import { formatLatlong } from '../utils/CountryFormat';
 
 const DetailCountry = () => {
   const navigate = useNavigate();
@@ -101,7 +102,7 @@ const DetailCountry = () => {
                   <div className='text-[#8362F2] text-[48px] font-[700]'>
                     <div className='flex gap-3'>
                       <span className='font-[500]'>
-                        {country.lat}, {country.lang}
+                        {formatLatlong(country.lat)}, {formatLatlong(country.lang)}
                       </span>
                     </div>
                   </div>

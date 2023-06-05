@@ -1,4 +1,3 @@
-import React from 'react';
 import CountryLink from './CountryLink';
 
 const SuggestedCountries = ({ collection }) => {

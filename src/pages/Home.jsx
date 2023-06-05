@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { useNavigate, createSearchParams } from 'react-router-dom';
 import Input from '../components/Input';
 import ErrorMessage from '../components/ErorrMessage';
 import SuggestedCountries from '../components/SuggestedCountries';
@@ -14,7 +13,7 @@ const Home = () => {
     const fetchApi = async () => {
       try {
         if (searchQuery) {
-          const api = `https://restcountries.com/v3.1/name/${searchQuery}`;
+            const api = `https://restcountries.com/v3.1/name/${searchQuery}`;
           const response = await fetch(api);
           const results = await response.json();
 
