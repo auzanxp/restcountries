@@ -39,7 +39,7 @@ const DetailCountry = () => {
           <div className='pl-[90px]'>
             <Button
               onClick={() => navigate('/')}
-              className='bg-[#8362F2] flex items-center justify-center gap-6 w-[229px] h-[50px] mt-[70px] rounded-[10px]'
+              className='bg-primary flex items-center justify-center gap-6 w-[229px] h-[50px] mt-[70px] rounded-[10px]'
             >
               <svg
                 width='18'
@@ -63,7 +63,7 @@ const DetailCountry = () => {
                   strokeLinejoin='round'
                 />
               </svg>
-              <span className='text-[#FFFFFF] font-[500] text-[18px] leading-[21px]'>
+              <span className='text-white font-[500] text-[18px] leading-[21px]'>
                 Back to Homepage
               </span>
             </Button>
@@ -71,7 +71,7 @@ const DetailCountry = () => {
             {/* Section 1 */}
             <div className='mt-[50px]'>
               <div className='flex items-center gap-[10px]'>
-                <h1 className='text-[#000000] font-[700] text-[48px]'>
+                <h1 className='text-black font-[700] text-[48px]'>
                   {country.name}
                 </h1>
                 <div className='mt-3'>
@@ -102,7 +102,7 @@ const DetailCountry = () => {
               <div className='w-[540px] h-[143px] relative flex overflow-hidden rounded-[5px] shadow-md'>
                 <div className='pt-[25px] pl-[25px]'>
                   <h1 className='font-[500] text-[18px]'>LatLong</h1>
-                  <div className='text-[#8362F2] text-[48px] font-[700]'>
+                  <div className='text-primary text-[48px] font-[700]'>
                     <div className='flex gap-3'>
                       <span className='font-[500]'>
                         {formatLatlong(country.lat)},{' '}
@@ -141,12 +141,12 @@ const DetailCountry = () => {
               {/* Calling code */}
               <div className='w-[540px] h-[143px] pt-[25px] pl-[25px]'>
                 <h1 className='font-[500] text-[18px]'>Calling Code</h1>
-                <p className='text-[#8362F2] font-[700] text-[48px]'>
+                <p className='text-primary font-[700] text-[48px]'>
                   {country.idd}
                 </p>
                 <p className='font-[500]'>
                   <span
-                    className='text-[#8362F2] underline cursor-pointer'
+                    className='text-primary underline cursor-pointer'
                     onMouseEnter={() => setIsHoverCallingCode(true)}
                   >
                     {country.phoneData.length} country
@@ -162,12 +162,9 @@ const DetailCountry = () => {
                   onMouseLeave={() => setIsHoverCallingCode(false)}
                 >
                   <ul className='pl-5 pt-2 space-y-1'>
-                    {country.phoneData.map((data) => (
-                      <li
-                        key={country.name}
-                        className='text-white font-[500] text-[14px]'
-                      >
-                        {country.name}
+                    {country.phoneData.map((data, i) => (
+                      <li key={i} className='text-white font-[500] text-[14px]'>
+                        {data.name}
                       </li>
                     ))}
                   </ul>
@@ -177,12 +174,12 @@ const DetailCountry = () => {
               {/* Currencies */}
               <div className='w-[540px] h-[143px] pt-[25px] pl-[25px]'>
                 <h1 className='font-[500] text-[18px]'>Currency</h1>
-                <p className='text-[#8362F2] font-[700] text-[48px]'>
+                <p className='text-primary font-[700] text-[48px]'>
                   {country.currencies}
                 </p>
                 <p className='font-[500]'>
                   <span
-                    className='text-[#8362F2] underline cursor-pointer'
+                    className='text-primary underline cursor-pointer'
                     onMouseEnter={() => setIsHoverCurrencies(true)}
                   >
                     {country.currencyData.length} country{' '}
@@ -198,11 +195,8 @@ const DetailCountry = () => {
                   onMouseLeave={() => setIsHoverCurrencies(false)}
                 >
                   <ul className='pl-5 pt-2 space-y-1'>
-                    {country.currencyData.map((data) => (
-                      <li
-                        key={data.name}
-                        className='text-white font-[500] text-[14px]'
-                      >
+                    {country.currencyData.map((data, i) => (
+                      <li key={i} className='text-white font-[500] text-[14px]'>
                         {data.name}
                       </li>
                     ))}

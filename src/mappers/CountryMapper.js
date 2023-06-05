@@ -1,3 +1,4 @@
+
 export const mapListCurrentData = (data) => {
     const { idd, currencies } = data;
     const rootWithoutPlus = idd?.root.replace("+", "");
