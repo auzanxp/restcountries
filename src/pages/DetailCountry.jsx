@@ -68,7 +68,6 @@ const DetailCountry = () => {
               </span>
             </Button>
 
-            {/* Section 1 */}
             <div className='mt-[50px]'>
               <div className='flex items-center gap-[10px]'>
                 <h1 className='text-black font-[700] text-[48px]'>
@@ -97,7 +96,6 @@ const DetailCountry = () => {
               </div>
             </div>
 
-            {/* Section 2 */}
             <div className='flex gap-[25px] mt-[31px]'>
               <div className='w-[540px] h-[143px] relative flex overflow-hidden rounded-[5px] shadow-md'>
                 <div className='pt-[25px] pl-[25px]'>
@@ -116,7 +114,6 @@ const DetailCountry = () => {
                 </div>
               </div>
 
-              {/* Additional info */}
               <div className='w-[540px] h-[143px] pt-[25px] pl-[25px] rounded-[5px] shadow-md'>
                 <ul>
                   <li className='font-[400] text-[18px]'>
@@ -138,7 +135,6 @@ const DetailCountry = () => {
 
           <div className='pl-[90px]'>
             <div className='flex gap-[25px] mt-[31px]'>
-              {/* Calling code */}
               <div className='w-[540px] h-[143px] pt-[25px] pl-[25px]'>
                 <h1 className='font-[500] text-[18px]'>Calling Code</h1>
                 <p className='text-primary font-[700] text-[48px]'>
@@ -171,7 +167,6 @@ const DetailCountry = () => {
                 </div>
               </div>
 
-              {/* Currencies */}
               <div className='w-[540px] h-[143px] pt-[25px] pl-[25px]'>
                 <h1 className='font-[500] text-[18px]'>Currency</h1>
                 <p className='text-primary font-[700] text-[48px]'>
