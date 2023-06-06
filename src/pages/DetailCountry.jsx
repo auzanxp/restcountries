@@ -6,6 +6,7 @@ import Flag from '../components/Flag';
 import { getFormattedCountryData } from '../services/CountryApi';
 import { formatLatlong } from '../utils/CountryFormat';
 import NProgress from 'nprogress';
+import Loading from '../components/Loading';
 
 const DetailCountry = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const DetailCountry = () => {
   return (
     <>
       {country == null ? (
-        <p>Loading</p>
+        <Loading />
       ) : (
         <>
           <div className='pl-[90px]'>
